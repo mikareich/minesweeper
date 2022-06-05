@@ -1,15 +1,9 @@
-* {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  height: 100vh;
-  display: grid;
-  place-items: center;
-}
+/* GAME STYLES */
 
 .game-container {
+  width: min-content;
+  height: min-content;
+  margin: auto;
   display: grid;
   grid-template-rows: repeat(var(--rows), 1fr);
   grid-template-columns: repeat(var(--cols), 1fr);
@@ -19,7 +13,6 @@ body {
   width: 60px;
   height: 60px;
   cursor: pointer;
-  font-family: "Ubuntu", sans-serif;
   display: grid;
   place-items: center;
   font-size: 1.5rem;
@@ -30,11 +23,11 @@ body {
 }
 
 .game-container .cell:nth-child(even) {
-  background-color: #59b054;
+  background-color: var(--cell-light);
 }
 
 .game-container .cell:nth-child(odd) {
-  background-color: #48854b;
+  background-color: var(--cell-dark);
 }
 
 .game-container .cell:hover {
@@ -48,12 +41,12 @@ body {
 }
 
 .game-container .cell.revealed.mine {
-  background-color: #e33838;
+  background-color: var(--mine);
   opacity: 1;
 }
 
 .game-container .cell.flagged {
-  border-color: #e33838;
+  border-color: var(--flag);
   opacity: 1;
   cursor: not-allowed;
 }

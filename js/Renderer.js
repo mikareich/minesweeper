@@ -1,27 +1,45 @@
+/* It renders the game based on the current game state */
 class Renderer {
+  /**
+   * Initialize the renderer.
+   * @param gameContainer - This is the HTML element that will contain the game.
+   */
   constructor(gameContainer) {
     this.gameContainer = gameContainer;
     this.cells = [];
+    this._fieldCreated = false;
   }
 
+  /**
+   * Renders the game based on the current game state.
+   * @param game - The game object.
+   */
   render(game) {
     switch (game.gameState) {
       case "INITIALIZING":
-        this.renderInitializing(game);
+        if (!this._fieldCreated) this.createField(game);
+        this.renderPlaying(game);
         break;
+
       case "PLAYING":
         this.renderPlaying(game);
         break;
+
       case "LOST":
-        this.renderLost(game);
+        this.revealAll();
         break;
+
       case "WON":
-        this.renderWon(game);
+        this.revealAll();
         break;
     }
   }
 
-  renderInitializing(game) {
+  /**
+   * Generates the cells and adds them to the gameContainer.
+   * @param game - the game object
+   */
+  createField(game) {
     this.gameContainer.style.setProperty("--cols", game.cols);
     this.gameContainer.style.setProperty("--rows", game.rows);
 
@@ -32,13 +50,19 @@ class Renderer {
       this.cells.push(cell);
     });
 
-    this.renderPlaying(game);
+    this._fieldCreated = true;
   }
 
+  /**
+   * Renders all cells based on their properties.
+   * @param game - the current game state
+   */
   renderPlaying(game) {
     this.cells.forEach((cell, index) => {
       const row = Math.floor(index / game.cols);
       const col = index % game.cols;
+      console.log(game.field[row][col]);
+
       const { isRevealed, isFlagged, isMine, numberOfMinesAround } =
         game.field[row][col];
       cell.innerHTML = isMine ? "💣" : numberOfMinesAround;
@@ -49,14 +73,10 @@ class Renderer {
     });
   }
 
-  renderLost(game) {
-    this.cells.forEach((cell) => {
-      cell.classList.add("revealed");
-      cell.classList.remove("flagged");
-    });
-  }
-
-  renderWon(game) {
+  /**
+   * Reveals all cells of the game and removes the flags.
+   */
+  revealAll() {
     this.cells.forEach((cell) => {
       cell.classList.add("revealed");
       cell.classList.remove("flagged");

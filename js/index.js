@@ -6,11 +6,9 @@ const ROWS = 9;
 const MINES = 5;
 
 const game = new Game(COLS, ROWS, MINES);
-const gameContainer = document.querySelector(".game-container");
+const gameContainer = document.getElementById("gameContainer");
 const renderer = new Renderer(gameContainer);
 renderer.render(game);
-
-console.log([true === false && "a"]);
 
 renderer.cells.forEach((cell, index) => {
   cell.addEventListener("click", () => {
