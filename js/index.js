@@ -12,12 +12,16 @@ renderer.render(game);
 
 renderer.cells.forEach((cell, index) => {
   cell.addEventListener("click", () => {
+    // reveal cell and render the game
     game.revealCell(index);
     renderer.render(game);
   });
 
   cell.addEventListener("contextmenu", (e) => {
+    // prevent context menu from opening
     e.preventDefault();
+
+    // flag cell and render the game
     game.flagCell(index);
     renderer.render(game);
   });
