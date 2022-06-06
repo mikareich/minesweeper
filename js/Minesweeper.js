@@ -3,11 +3,11 @@ class Minesweeper {
   /**
    * The constructor function creates a new Minesweeper object with the specified number of rows,
    * columns, and mines
-   * @param cols - The number of columns in the field.
    * @param rows - The number of rows in the field.
+   * @param cols - The number of columns in the field.
    * @param numberOfMines - The number of mines to be placed on the field.
    */
-  constructor(cols, rows, numberOfMines) {
+  constructor(rows, cols, numberOfMines) {
     this.gameState = "INITIALIZING";
     this.rows = rows;
     this.cols = cols;
