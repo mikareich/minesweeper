@@ -109,14 +109,23 @@ class Renderer {
 
   renderWon() {
     this.revealAll();
+    var canvas = document.createElement("canvas");
+    canvas.width = document.body.clientWidth;
+    canvas.height = document.body.clientHeight;
+    canvas.className = "confetti-canvas";
+    document.body.appendChild(canvas);
 
-    confetti({
-      particleCount: 100,
-      origin: {
-        x: this.mousePosition.x / window.innerWidth,
-        y: this.mousePosition.y / window.innerHeight,
-      },
+    var myConfetti = confetti.create(canvas, {
+      resize: true,
+      useWorker: true,
     });
+
+    myConfetti({
+      origin: {
+        x: this.mousePosition.x / document.body.clientWidth,
+        y: this.mousePosition.y / document.body.clientHeight,
+      },
+    }).then(canvas.remove);
   }
 
   renderLost() {

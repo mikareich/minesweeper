@@ -1,11 +1,11 @@
-import Game from "./Game.js";
+import Minesweeper from "./Minesweeper.js";
 import Renderer from "./Renderer.js";
 
 const COLS = 11;
 const ROWS = 11;
-const MINES = 5;
+const MINES = 1;
 
-const game = new Game(COLS, ROWS, MINES);
+const game = new Minesweeper(COLS, ROWS, MINES);
 
 const gameContainer = document.getElementById("gameContainer");
 const numberOfMinesSPAN = document.getElementById("numberOfMines");

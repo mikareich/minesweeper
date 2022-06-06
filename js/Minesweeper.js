@@ -1,5 +1,5 @@
 /** Representation of a Minesweeper game */
-class Game {
+class Minesweeper {
   /**
    * The constructor function creates a new Minesweeper object with the specified number of rows,
    * columns, and mines
@@ -124,6 +124,9 @@ class Game {
       [row + 1, col + 1],
     ];
 
+    /**
+     * It returns true if the given coordinates are within the bounds of the field
+     */
     const positionInField = ([cRow, cCol]) =>
       cRow >= 0 && cCol >= 0 && cRow < this.rows && cCol < this.cols;
 
@@ -258,4 +261,4 @@ class Game {
   }
 }
 
-export default Game;
+export default Minesweeper;
