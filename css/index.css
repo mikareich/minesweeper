@@ -1,3 +1,27 @@
+.header {
+  display: flex;
+  align-items: center;
+  padding: 50px;
+}
+
+.header__item {
+  font-weight: unset;
+  margin-left: 10px;
+  color: var(--text);
+  text-transform: uppercase;
+}
+
+.header__item span {
+  color: var(--text-light);
+}
+
+.header__title {
+  margin: 0;
+  line-height: 1;
+  margin-right: auto;
+  text-transform: none;
+}
+
 /* GAME STYLES */
 
 .game-container {
@@ -7,6 +31,8 @@
   display: grid;
   grid-template-rows: repeat(var(--rows), 1fr);
   grid-template-columns: repeat(var(--cols), 1fr);
+  gap: 5px;
+  user-select: none;
 }
 
 .game-container .cell {
@@ -15,9 +41,7 @@
   cursor: pointer;
   display: grid;
   place-items: center;
-  font-size: 1.5rem;
   color: transparent;
-  user-select: none;
   transition: 200ms;
   border: 5px solid transparent;
 }
@@ -35,9 +59,9 @@
 }
 
 .game-container .cell.revealed {
-  color: #ffffff;
+  color: var(--text-light);
   cursor: not-allowed;
-  opacity: 0.8;
+  background-color: var(--cell-revealed);
 }
 
 .game-container .cell.revealed.mine {
@@ -46,7 +70,7 @@
 }
 
 .game-container .cell.flagged {
-  border-color: var(--flag);
+  color: var(--text-light);
   opacity: 1;
   cursor: not-allowed;
 }

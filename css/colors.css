@@ -1,6 +1,10 @@
 :root {
-  --cell-light: #59b054;
-  --cell-dark: #48854b;
-  --mine: #e33838;
-  --flag: #e0e338;
+  --cell-revealed: #f3f4f6;
+  --cell-light: #e5e7eb;
+  --cell-dark: #d1d5db;
+  --mine: #f87171;
+  --flag: #fbbf24;
+  --text: #374151;
+  --text-light: #6b7280;
+  --white: #f9fafb;
 }

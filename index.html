@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./css/colors.css" />
@@ -15,12 +15,14 @@
     <link rel="stylesheet" href="./css/index.css" />
   </head>
   <body>
-    <header>
-      <h1>Minesweeper</h1>
-      <h3 id="numberOfMines">10</h3>
-      <h3 id="flaggedCells">3</h3>
+    <header class="header">
+      <h1 class="header__item header__title">💣 Minesweeper</h1>
+      <h4 class="header__item"><span id="numberOfMines">10</span> Mines</h4>
+      <h4 class="header__item"><span id="flags">3</span> Flags</h4>
     </header>
     <div class="game-container" id="gameContainer"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
     <script src="./js/index.js" type="module"></script>
   </body>
 </html>

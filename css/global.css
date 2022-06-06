@@ -6,4 +6,5 @@ body {
   margin: 0;
   height: 100vh;
   font-family: "Ubuntu", sans-serif;
+  background-color: var(--white);
 }

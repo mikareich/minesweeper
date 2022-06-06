@@ -19,6 +19,14 @@ class Game {
   }
 
   /**
+   * It returns an array of all the cells in the field
+   * @returns An array of all the cells in the field.
+   */
+  _getAllCells() {
+    return this.field.flat();
+  }
+
+  /**
    * Creates the field with plain cells.
    */
   _createField() {
@@ -34,6 +42,7 @@ class Game {
           numberOfMinesAround: 0,
           row: rowIndex,
           col: colIndex,
+          index: rowIndex * this.cols + colIndex,
         };
       }
     }
@@ -97,15 +106,16 @@ class Game {
    * @returns An array of cells around the given cell.
    */
   _getCellsAround(row, col, pattern = "block") {
-    // the cells that actually touch the given cell
+    // the cells that actually touch the given cell, including the given cell
     const crossPattern = [
       [row - 1, col],
       [row, col - 1],
+      [row, col],
       [row, col + 1],
       [row + 1, col],
     ];
 
-    // all the 8 cells around the given cell, even in the corners
+    // all the 8 cells around the given cell, even in the corners, including the given cell
     const blockPattern = [
       ...crossPattern,
       [row - 1, col - 1],
@@ -168,7 +178,7 @@ class Game {
   _isWon() {
     return (
       this._getMines().every((cell) => cell.isFlagged) &&
-      this._getMines().length === this.numberOfMines
+      this._getMines().length === this._getFlaggedCells().length
     );
   }
 
@@ -238,7 +248,7 @@ class Game {
    */
   flagCell(index) {
     const cell = this._getCellByIndex(index);
-    if (!this.gameState === "PLAYING" || cell.isRevealed) return;
+    if (this.gameState !== "PLAYING" || cell.isRevealed) return;
 
     // flag cell
     cell.isFlagged = !cell.isFlagged;
