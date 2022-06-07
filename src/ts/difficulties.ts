@@ -17,15 +17,15 @@ export const easyDifficulty: Difficulty = {
 }
 
 export const mediumDifficulty: Difficulty = {
-  numberOfRows: 16,
-  numberOfCols: 16,
+  numberOfRows: 15,
+  numberOfCols: 15,
   numberOfMines: 40,
   level: 'medium',
 }
 
 export const hardDifficulty: Difficulty = {
-  numberOfRows: 16,
-  numberOfCols: 16,
+  numberOfRows: 15,
+  numberOfCols: 15,
   numberOfMines: 99,
   level: 'hard',
 }
@@ -39,6 +39,8 @@ export const allDifficulties: Difficulty[] = [
 export const getDifficultyByLevel = (level: string): Difficulty | undefined => {
   return allDifficulties.find((difficulty) => difficulty.level === level)
 }
+
+export const defaultDifficulty: Difficulty = mediumDifficulty
 
 export default {
   easyDifficulty,
