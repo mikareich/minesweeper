@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  main {
+    @apply prose mx-auto mt-14 p-8 pb-0;
+  }
+
+  footer {
+    @apply mt-12 h-24 border-t flex items-center justify-center p-10 text-gray-500;
+  }
+}
+
+@layer components {
+  .submit-btn {
+    @apply bg-blue-500 w-auto px-4 py-2 text-white;
+  }
+
+  .input-container {
+    @apply block col-span-2;
+  }
+
+  .input {
+    @apply mt-1 block w-full;
+  }
+}
