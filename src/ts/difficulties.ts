@@ -40,7 +40,7 @@ export const getDifficultyByLevel = (level: string): Difficulty | undefined => {
   return allDifficulties.find((difficulty) => difficulty.level === level)
 }
 
-export const defaultDifficulty: Difficulty = mediumDifficulty
+export const defaultDifficulty: Difficulty = easyDifficulty
 
 export default {
   easyDifficulty,

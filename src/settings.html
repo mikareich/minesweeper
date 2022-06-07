@@ -8,48 +8,67 @@
   <body>
     <main>
       <section>
-        <h1>⚙️ Settings</h1>
+        <h1>⚙️ Einstellungen</h1>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa
-          consequuntur error maiores veritatis laboriosam, eaque saepe explicabo
-          sit recusandae ullam facere. Officiis animi delectus placeat obcaecati
-          maiores. Rerum, ad repudiandae!
+          Kennst du Minesweeper? Bestimmt! Ziel des Spiels ist es, alle Minen
+          versteckten Minen zu finden und mit Flaggen zu makieren (Rechtsklick).
+          Um entsprechende Felder zu finden, musst du Nachbarfelder aufdecken,
+          die dir dann zeigen, wieviele Minen in unter den acht angrenzenden
+          Nachbarfeldern versteckt sind.
         </p>
         <hr />
       </section>
 
       <section>
-        <h2>Create a new game</h2>
+        <h2>Ein neues Spiel erstellen</h2>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi
-          inventore, ab doloribus ullam vero aut dolor excepturi illo hic
-          laudantium eaque accusamus voluptatum ducimus? Exercitationem saepe
-          omnis illum sed cum.
+          Willst du auf deinen eigenen Einstellungen oder unter einer anderen
+          Schwierigkeit spielen?
         </p>
         <form id="createGame" class="grid grid-cols-2 gap-6">
           <label for="difficulty" class="input-container">
-            <span>What difficulty do you want to play on?</span>
-            <select id="difficultyLevel" class="input">
-              <option value="easy">Easy</option>
-              <option value="medium">Medium</option>
-              <option value="hard">Hard</option>
-              <option value="custom">Custom</option>
+            <span>Auf welcher Schwierigkeit spielst du?</span>
+            <select id="difficultyLevel" class="input" required>
+              <option value="easy">Einfach</option>
+              <option value="medium">Mittel</option>
+              <option value="hard">Schwer</option>
+              <option value="custom">Eigene</option>
             </select>
           </label>
           <label for="numberOfRows" class="input-container sm:col-span-1">
-            Number of rows:
-            <input type="number" id="numberOfRows" class="input" value="9" />
+            Anzahl an Zeilen:
+            <input
+              type="number"
+              id="numberOfRows"
+              class="input"
+              value="9"
+              required
+            />
           </label>
           <label for="numberOfColumns" class="input-container sm:col-span-1">
-            Number of columns:
-            <input type="number" id="numberOfCols" class="input" value="9" />
+            Anzahl an Spalten:
+            <input
+              type="number"
+              id="numberOfCols"
+              class="input"
+              value="9"
+              required
+            />
           </label>
           <label for="numberOfMines" class="input-container">
-            Number of mines:
-            <input type="number" id="numberOfMines" class="input" value="10" />
+            Anzahl an Minen:
+            <input
+              type="number"
+              id="numberOfMines"
+              class="input"
+              value="10"
+              required
+            />
           </label>
-          <div>
-            <button class="submit-btn" type="submit">Start a new game</button>
+          <div class="col-span-2">
+            <button class="submit-btn" type="submit">
+              Neues Spiel erstellen
+            </button>
           </div>
         </form>
       </section>

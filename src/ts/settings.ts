@@ -1,6 +1,7 @@
 import '../scss/base.scss'
-import difficulties, {
+import {
   allDifficulties,
+  defaultDifficulty,
   Difficulty,
   getDifficultyByLevel,
 } from './difficulties'
@@ -19,7 +20,7 @@ const numberOfMinesINPUT = <HTMLInputElement>(
 )
 const createGameFORM = <HTMLFormElement>document.getElementById('createGame')
 
-const difficulty: Difficulty = { ...difficulties.mediumDifficulty } // remove shadow copy (i hate it :/)
+const difficulty: Difficulty = { ...defaultDifficulty } // remove shadow copy (i hate it :/)
 
 /**
  * It updates the values of the inputs to match the values of the difficulty object
