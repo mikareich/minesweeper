@@ -47,7 +47,7 @@ class Minesweeper {
   get timeElapsed() {
     if (this.startTimestamp === null || this.lastTimestamp === null) return 0
 
-    if (!this.isWon) this.lastTimestamp = Date.now()
+    if (this.gameState === 'PLAYING') this.lastTimestamp = Date.now()
     return this.lastTimestamp - this.startTimestamp
   }
 
@@ -101,6 +101,14 @@ class Minesweeper {
       this.mines.every((cell) => cell.isFlagged) &&
       this.mines.length === this.flaggedCells.length
     )
+  }
+
+  /**
+   * Indicates that the player lost the game.
+   * @returns Whether the player lost the game.
+   */
+  get isLost() {
+    return this.gameState === 'LOST'
   }
 
   /**
